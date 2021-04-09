@@ -16,7 +16,7 @@ function getUniqueArray(arr) {
 // Function 2A
 function failPassAverage(arr) {
   const failArr = arr.filter((i) => i < 50);
-  const passArr = arr.filter((i) => i > 50 && i != 0 && i != 50);
+  const passArr = arr.filter((i) => i >= 50 && i != 0 );
 
   const failAvg =
     failArr.length !== 0
@@ -76,16 +76,16 @@ function getDaysBetweenTwoDate(str1, str2) {
 //5A: Swap Characters
 
 function swapCharactersInString(str, c1, c2) {
-  let arr = str.split("").map((char) => {
-    if (char === c1) {
-      char = c2;
-    } else if (char === c2) {
-      char = c1;
-    }
-    return char;
-  });
+  let stringArr = str.split("");
 
-  return arr.join("");
+  for (let i = 0; i < stringArr.length; i++) {
+    if (stringArr[i] === c1) {
+      stringArr[i] = c2;
+    } else if (stringArr[i] === c2) {
+      stringArr[i] = c1;
+    }
+  }
+  return stringArr.join("");
 }
 
 // Function 6A: Move Capital Letters
