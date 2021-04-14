@@ -1,6 +1,11 @@
 ## Problem solving with JavaScript
 
-Create JavaScript function that meets the following requirements.
+Create JavaScript function that meets some requirements.
+
+### Table off content
+  1. [ Fail / Pass Averages](https://github.com/siddique000/JS-problem#1-fail--pass-averages)
+  2. [ Fail / Pass Averages](https://github.com/siddique000/JS-problem#1-fail--pass-averages)
+
 ###### 1. Fail / Pass Averages
   
   - Receives an array of numbers as a parameter, with each integer being a mark out of 100.
