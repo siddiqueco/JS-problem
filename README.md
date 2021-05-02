@@ -4,7 +4,8 @@ Create JavaScript function that meets some requirements.
 
 ### Table off content
   1. [ Fail / Pass Averages](https://github.com/siddique000/JS-problem#1-fail--pass-averages)
-  2. [ Fail / Pass Averages](https://github.com/siddique000/JS-problem#1-fail--pass-averages)
+  2. [ Swap Characters](https://github.com/siddique000/JS-problem#2-swap-characters)
+  3. 
 
 ###### 1. Fail / Pass Averages
   
@@ -71,4 +72,33 @@ function swapCharactersInString(str, c1, c2) {
 ```
 </details>
 
+###### 3. Move Capital Letters
+  
+  - That takes in a string parameter, of mixed casing (mix of upper and lowercase letters)
+  - The function moves all capital letters to the front of a word.
+  - The uppercase letters moved to the front, maintain their original relative order
+  - The lowercase letters moved to the back front, maintain their original relative order
+>
+      Test Case:
+      functionName("hApPy") --> "APhpy"
+      functionName("moveMENT") --> "MENTmove"
+      functionName("shOrtCAKE") -->  "OCAKEshrt"
+  
+<details><summary><b>Answer</b></summary>
+
+```javaScript
+function moveCapitalLetter(str) {
+  let cap = "";
+  let small = "";
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] >= "A" && str[i] <= "Z") {
+      cap += str[i];
+    } else {
+      small += str[i];
+    }
+  }
+  return cap + small;
+}
+```
+</details>
 
