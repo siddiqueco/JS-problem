@@ -5,7 +5,7 @@ Create JavaScript function that meets some requirements.
 ### Table off content
   1. [ Fail / Pass Averages](https://github.com/siddique000/JS-problem#1-fail--pass-averages)
   2. [ Swap Characters](https://github.com/siddique000/JS-problem#2-swap-characters)
-  3. 
+  3. [ Move Capital Letters](https://github.com/siddique000/JS-problem#3-move-capital-letters)
 
 ###### 1. Fail / Pass Averages
   
@@ -99,6 +99,21 @@ function moveCapitalLetter(str) {
   }
   return cap + small;
 }
+```
+</details>
+
+<details><summary><b>Answer 2</b></summary>
+
+```javaScript
+function moveCapitalLetter(str) {
+  const res = [...str].sort((a, b) => (isCaps(a) ? (isCaps(b) ? 0 : -1) : 0));
+  return res.join("");
+
+  function isCaps(c) {
+    return c.charCodeAt() >= 65 && c.charCodeAt() <= 90;
+  }
+}
+
 ```
 </details>
 
