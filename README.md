@@ -6,6 +6,10 @@ Create JavaScript function that meets some requirements.
   1. [ Fail / Pass Averages](https://github.com/siddique000/JS-problem#1-fail--pass-averages)
   2. [ Swap Characters](https://github.com/siddique000/JS-problem#2-swap-characters)
   3. [ Move Capital Letters](https://github.com/siddique000/JS-problem#3-move-capital-letters)
+  4. [ Check Date ](https://github.com/siddique000/JS-problem#4-check-date)
+  5. [ How many Days Between](https://github.com/siddique000/JS-problem#5-how-many-days-between)
+
+#
 
 ###### 1. Fail / Pass Averages
   
@@ -117,3 +121,115 @@ function moveCapitalLetter(str) {
 ```
 </details>
 
+###### 4. Check Date
+  
+  - Receives a string as a parameter.
+  - The function returns a Boolean indicating if the parameter string passed, is a valid date. True indicates a valid date was provided o False indicates that a valid date was not provided.
+  - A valid date string, will have only the full month name (ex “January” not “Jan”) and a day number.A year will not be provided and thus your logic need not be concerned in that regard
+  - The string parameter can contain any number of spaces, but the month name must always start at the
+    first non-space character from the beginning of the string
+  - The day number part of the date string to be tested could contain alphabetic characters and thus making
+    it invalid
+  - You may assume February only has 28 days in it.
+>
+      Test Case:
+      functionName("aabbccc", "a", "b) --> "bbaaccc" 
+      functionName("random w#rds writt&n h&r&", "#", "&") --> "random w&rds writt#n h#r#"
+      functionName("128 895 556 788 999", "8", "9") -->  "129 985 556 799 888"
+      functionName("January 21"))  -->  true
+      functionName("Auust 3")) -->  false
+      functionName(" June 15B ")) -->  false
+      functionName("February 0")) --> false
+      functionName(" December 3K1"))  -->  false
+      functionName("February 29"))  -->  false
+      functionName(" February 28 "))  -->  true
+  
+<details><summary><b>Answer</b></summary>
+
+```javaScript
+function checkValidDate(dateStr) {
+  const MONTH = {
+    January: "January",
+    February: "February",
+    March: "March",
+    April: "April",
+    May: "May",
+    June: "June",
+    July: "July",
+    August: "August",
+    September: "September",
+    October: "October",
+    November: "November",
+    December: "December",
+  };
+  let [month, day] = filterUndefined(splitToArr(dateStr, " "));
+
+  if (month === MONTH.January && day <= 31 && day != 0) return true;
+  else if (month === MONTH.February && day <= 28 && day != 0) return true;
+  else if (month === MONTH.March && day <= 31 && day != 0) return true;
+  else if (month === MONTH.April && day <= 30 && day != 0) return true;
+  else if (month === MONTH.May && day <= 31 && day != 0) return true;
+  else if (month === MONTH.June && day <= 30 && day != 0) return true;
+  else if (month === MONTH.July && day <= 31 && day != 0) return true;
+  else if (month === MONTH.August && day <= 30 && day != 0) return true;
+  else if (month === MONTH.September && day <= 31 && day != 0) return true;
+  else if (month === MONTH.October && day <= 30 && day != 0) return true;
+  else if (month === MONTH.November && day <= 31 && day != 0) return true;
+  else if (month === MONTH.December && day <= 30 && day != 0) return true;
+  else return false;
+
+  function filterUndefined(arr) {
+    let newArr = [];
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] !== undefined) {
+        newArr = [...newArr, arr[i]];
+      }
+    }
+    return newArr;
+  }
+
+  function splitToArr(string, separator) {
+    let cache = [];
+    let cachInt = 0;
+    let lastWord = "";
+    for (let i = 0; i < string.length; i++) {
+      if (string[i] == separator) {
+        cachInt++;
+        lastWord = "";
+      } else {
+        if (lastWord !== " ") {
+          lastWord += string[i];
+          cache[cachInt] = lastWord;
+        }
+      }
+    }
+    return cache;
+  }
+}
+```
+</details>
+  
+ ###### 5. How many Days Between
+  
+  - Create a function that takes two valid dates as arguments
+  - The function returns the number of days between str_date1 and str_date2
+
+>
+      Test Case:
+      
+      functionName("June 14, 2021", "June 20, 2021")  --> 6
+      functionName("December 29, 2021", "January 1, 2022")  --> 3
+      functionName("July 20, 2021", "July 30, 2021")  --> 10
+  
+<details><summary><b>Answer</b></summary>
+
+```javaScript
+function getDaysBetweenTwoDate(str1, str2) {
+  const date1 = new Date(str1);
+  const date2 = new Date(str2);
+  const startDay = Math.floor(date1.getTime() / (60 * 60 * 24 * 1000)); 
+  const endDay = Math.floor(date2.getTime() / (60 * 60 * 24 * 1000)); 
+  return endDay - startDay;
+}
+```
+</details>
