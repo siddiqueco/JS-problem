@@ -209,12 +209,12 @@ function checkValidDate(dateStr) {
 ```
 </details>
   
- ###### 5. How many Days Between
+  ###### 5. How many Days Between
   
   - Create a function that takes two valid dates as arguments
   - The function returns the number of days between str_date1 and str_date2
 
->
+
       Test Case:
       
       functionName("June 14, 2021", "June 20, 2021")  --> 6
@@ -223,13 +223,33 @@ function checkValidDate(dateStr) {
   
 <details><summary><b>Answer</b></summary>
 
-```javaScript
 function getDaysBetweenTwoDate(str1, str2) {
   const date1 = new Date(str1);
   const date2 = new Date(str2);
   const startDay = Math.floor(date1.getTime() / (60 * 60 * 24 * 1000)); 
   const endDay = Math.floor(date2.getTime() / (60 * 60 * 24 * 1000)); 
   return endDay - startDay;
+}
+</details>
+  
+ ###### 6. Leading Zeros
+  
+  - That takes in a string number as an argument
+  - The function returns the number removing any trailing and/or leading zeros.
+  - Trailing zeros are the zeros after a decimal point which don’t affect the value of the number
+  - Leading zeros are the zeros before a number which don’t affect the value of the number
+>
+      Test Case:
+      
+      functionName("230.000")  --> 230
+      functionName("00402")  --> 402
+      functionName("03.1400")  --> 3.14
+      functionName("30")  --> 30
+<details><summary><b>Answer</b></summary>
+
+```javaScript
+function removeLeadingZeros(num) {
+  return +num;
 }
 ```
 </details>
