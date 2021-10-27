@@ -8,6 +8,7 @@ Create JavaScript function that meets some requirements.
   3. [ Move Capital Letters](https://github.com/siddique000/JS-problem#3-move-capital-letters)
   4. [ Check Date ](https://github.com/siddique000/JS-problem#4-check-date)
   5. [ How many Days Between](https://github.com/siddique000/JS-problem#5-how-many-days-between)
+  6. [ Leading zeros](https://github.com/siddique000/JS-problem#6-leading-zeros)
 
 #
 
@@ -213,7 +214,7 @@ function checkValidDate(dateStr) {
   
   - Create a function that takes two valid dates as arguments
   - The function returns the number of days between str_date1 and str_date2
-
+>
 
       Test Case:
       
