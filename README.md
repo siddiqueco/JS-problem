@@ -254,3 +254,66 @@ function removeLeadingZeros(num) {
 }
 ```
 </details>
+  
+ ###### 7. Capitalize first Letter of Each Word
+  
+  - That takes in a string as an argument.
+  - The function converts first character of each word to uppercase.
+  - The function returns the newly formatted string.
+  
+>
+      Test Case:
+      
+      functionName("This is a title")  --> "This Is A Title"
+      functionName("capitalize every word")  --> "Capitalize Every Word"                                  
+      functionName("I Like Pizza")  --> "I Like Pizza"
+      functionName("PIZZA PIZZA PIZZA")  --> "PIZZA PIZZA PIZZA"
+<details><summary><b>Answer</b></summary>
+
+```javaScript
+function capFirstLetterOfEachWord(str) {
+  let result = "";
+  let arr = splitToArr(str, " ");
+  let newStr = "";
+  for (let i = 0; i < arr.length; i++) {
+    let word = "";
+    for (let j = 0; j < arr[i].length; j++) {
+      let chh = "";
+      if (j == 0) {
+        if (arr[i][j] >= "a" && arr[i][j] <= "z") {
+          chh = String.fromCharCode(arr[i].charCodeAt(0) - 32);
+        } else {
+          chh += arr[i][j];
+        }
+      } else {
+        chh += arr[i][j];
+      }
+      word += chh;
+    }
+    newStr += word + " ";
+  }
+  for (let i = 0; i < newStr.length - 1; i++) {
+    result += newStr[i];
+  }
+  return result;
+
+  function splitToArr(string, separator) {
+    let cache = [];
+    let cachInt = 0;
+    let lastWord = "";
+    for (let i = 0; i < string.length; i++) {
+      if (string[i] == separator) {
+        cachInt++;
+        lastWord = "";
+      } else {
+        if (lastWord !== " ") {
+          lastWord += string[i];
+          cache[cachInt] = lastWord;
+        }
+      }
+    }
+    return cache;
+  }
+}
+```
+</details>
